@@ -65,28 +65,6 @@ enableCamShake true;
 	};
 };
 
-if(!isNil "ace_interact_menu_fnc_createAction") then {
-	_action = ["anomaly_detector","Enable anomaly detector","",{
-		ANOMALY_DETECTOR_ACTIVE = true;
-		[] call anomalyDetector_fnc_detector;
-	},{!ANOMALY_DETECTOR_ACTIVE && [player, ANOMALY_DETECTOR_ITEM] call anomaly_fnc_hasItem},{},[], [0,0,0], 100] call ace_interact_menu_fnc_createAction;
-
-	[typeOf player, 1, ["ACE_SelfActions", "ACE_Equipment"], _action] call ace_interact_menu_fnc_addActionToClass;
-
-	_action = ["anomaly_detector","Turn off anomaly detector","",{
-		ANOMALY_DETECTOR_ACTIVE = false;
-	},{ANOMALY_DETECTOR_ACTIVE},{},[], [0,0,0], 100] call ace_interact_menu_fnc_createAction;
-
-	[typeOf player, 1, ["ACE_SelfActions", "ACE_Equipment"], _action] call ace_interact_menu_fnc_addActionToClass;
-
-	if ! (isClass(configFile >> "CfgPatches" >> "diwako_anomalies")) then {
-		_action = ["throw_bolt","Throw a bolt","",{
-			[player] call anomaly_fnc_throwBolt;
-		},{ANOMALY_BOLT_THROW_TIME < time && [player, ANOMALY_BOLT_ITEM] call anomaly_fnc_hasItem},{},[], [0,0,0], 100] call ace_interact_menu_fnc_createAction;
-
-		[typeOf player, 1, ["ACE_SelfActions", "ACE_Equipment"], _action] call ace_interact_menu_fnc_addActionToClass;
-	};
-
 // add Ares modules for zeus
 if(!isNil "Ares_fnc_RegisterCustomModule") then {
 	["ALIAScartoons Anomalies", "Spawn Anomaly", 
@@ -129,10 +107,10 @@ if(!isNil "Ares_fnc_RegisterCustomModule") then {
 		}
 	] call Ares_fnc_RegisterCustomModule;
 
-	["Stalker Anomalies", "Delete Anomalies", 
+	["ALIAScartoons Anomalies", "Delete Anomalies", 
 		{
 			_pos = _this select 0;
-			private _radius = ["1","5","10","100","250"];
+			private _radius = ["1","5","10","100","250","500"];
 
 			private _dialogResult =
 			[
