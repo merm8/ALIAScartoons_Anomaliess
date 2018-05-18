@@ -7,7 +7,7 @@
     Returns:
         Anomaly Trigger
 	Author:
-	merm8 18-5-2018
+	diwako 18-5-2018
 */
 params[["_pos",[0,0,0]]];
 
