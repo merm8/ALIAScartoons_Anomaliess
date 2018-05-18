@@ -6,7 +6,7 @@
     Returns:
         nothing
 	Author:
-	merm8 18-5-2018
+	diwako 18-5-2018
 */
 
 if(!hasInterface || missionNamespace getVariable ["anomaly_var_init",false]) exitWith {};
