@@ -8,7 +8,7 @@
     Returns:
         nothing
 	Author:
-	merm8 18-5-2018
+	diwako 18-5-2018
 */
 params[["_trg",objNull],["_list",[]]];
 
